@@ -1,63 +1,86 @@
-body {
-  background-color: #ece2e2;
-  font-family: 'Roboto', sans-serif;
+@keyframes slideIn {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-.hero {
-  height: 60vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: rgb(29, 5, 5);
-  text-align: center;
-  animation: fadeIn 2s ease-in-out;
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
-.hero img {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  border: 3px solid white;
-  margin-bottom: 15px;
-  animation: zoomIn 1.5s ease-in-out;
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
 }
 
-.project-card {
-  transition: transform 0.3s ease-in-out;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.software-title {
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-right: 3px solid #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  width: fit-content;
+  animation: typing 8s steps(40, end) forwards, blink 0.8s step-end infinite;
+  position: relative;
 }
 
-.project-card:hover {
-  transform: scale(1.05);
+.software-title::before {
+  content: "_";
+  position: absolute;
+  left: -15px;
+  animation: typing 8s steps(40, end) forwards, blink 0.8s step-end infinite;
 }
 
-.timeline {
-  padding: 20px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+@keyframes rotate-forward {
+  0% {
+    transform: scale(1) rotateY(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.8) rotateY(90deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1) rotateY(180deg);
+    opacity: 1;
+  }
 }
 
-.contact-container {
-  margin-top: 100px;
-  text-align: center;
-  padding: 30px;
-  color: rgb(71, 11, 236);
-  animation: fadeInUp 1.5s ease-in-out;
+@keyframes rotate-backward {
+  0% {
+    transform: scale(1) rotateY(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.8) rotateY(-90deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1) rotateY(-180deg);
+    opacity: 1;
+  }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.rotate-forward {
+  animation: rotate-forward 1s ease-in-out forwards;
 }
 
-@keyframes fadeInUp {
-  from { transform: translateY(50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes zoomIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+.rotate-backward {
+  animation: rotate-backward 1s ease-in-out forwards;
 }

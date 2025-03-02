@@ -1,30 +1,36 @@
 import React from "react";
-import { Typography, Card, CardContent, Avatar, Box, Grid } from "@mui/material";
+import { Container, Typography, Avatar, Grid, Paper } from "@mui/material";
 import profilePic from "../images/passport_style_photo.jpg";
 
 const About: React.FC = () => {
   return (
-    <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
-      <Card sx={{ width: "60%", padding: 3, textAlign: "center" }}>
-        <Avatar src={profilePic} sx={{ width: 120, height: 120, margin: "auto" }} />
-        <CardContent>
-          <Typography variant="h4" gutterBottom>About Me</Typography>
-          <Typography variant="body1">
-            I'm a Masters student at New York University, passionate about software engineering and data engineering.
-          </Typography>
-          <Typography variant="h6" sx={{ mt: 2 }}>Skills:</Typography>
-          <Grid container spacing={1} justifyContent="center">
-            {["Python", "SQL", "React", "AWS", "Machine Learning"].map((skill) => (
-              <Grid item key={skill}>
-                <Box sx={{ background: "#2c3e50", color: "white", padding: "5px 15px", borderRadius: "20px" }}>
-                  {skill}
-                </Box>
-              </Grid>
-            ))}
-          </Grid>
-        </CardContent>
-      </Card>
-    </Box>
+    <Container sx={{ mt: 5, textAlign: 'center' }}>
+      <Grid container spacing={3} alignItems="center" justifyContent="center">
+        <Grid item xs={12} md={4}>
+          <Avatar src={profilePic} sx={{ width: 200, height: 200, margin: 'auto' }} />
+        </Grid>
+        <Grid item xs={12} md={8}>
+          <Paper sx={{ padding: 3, background: "#f5f5f5", boxShadow: "0px 4px 10px rgba(0,0,0,0.1)" }}>
+            <Typography variant="h4" gutterBottom>
+              About Me
+            </Typography>
+            <Typography variant="body1">
+              I am a passionate Software Engineer and Data Enthusiast, currently completing my Master's at NYU. My experience spans AI, Machine Learning, and Full-Stack Development. I thrive in creating intelligent solutions that transform data into actionable insights.
+            </Typography>
+            <Typography variant="h5" sx={{ mt: 2 }}>Tech Stack:</Typography>
+            <Typography variant="body1" sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
+              Python | SQL | React | AWS | Machine Learning | Big Data
+            </Typography>
+            <Typography variant="h5" sx={{ mt: 2 }}>Fun Facts:</Typography>
+            <Typography variant="body2">
+              🎵 Music enthusiast with a knack for AI-driven music analytics. <br/>
+              📈 Loves working with real-world financial datasets. <br/>
+              ☕ Can debug faster with a cup of coffee!
+            </Typography>
+          </Paper>
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 
