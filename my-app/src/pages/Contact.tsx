@@ -1,15 +1,17 @@
 import React from "react";
-import { Typography, Container, TextField, Button } from "@mui/material";
+import { Typography, TextField, Button, Container, Box } from "@mui/material";
 
 const Contact: React.FC = () => {
   return (
-    <Container>
-      <Typography variant="h4" gutterBottom>Contact Me</Typography>
-      <TextField label="Your Name" fullWidth margin="normal" />
-      <TextField label="Your Email" fullWidth margin="normal" />
-      <TextField label="Message" fullWidth multiline rows={4} margin="normal" />
-      <Button variant="contained" color="primary" sx={{ marginTop: 2 }}>Send Message</Button>
-    </Container>
+    <Box className="contact-container">
+      <Container sx={{padding: 4, borderRadius: 2 }}>
+        <Typography variant="h4" textAlign="center" gutterBottom>Contact Me</Typography>
+        <TextField label="Your Name" fullWidth margin="normal" variant="filled" sx={{ background: "white" }} />
+        <TextField label="Your Email" fullWidth margin="normal" variant="filled" sx={{ background: "white" }} />
+        <TextField label="Message" fullWidth multiline rows={4} margin="normal" variant="filled" sx={{ background: "white" }} />
+        <Button variant="contained" color="secondary" sx={{ mt: 2, width: "100%" }}>Send Message</Button>
+      </Container>
+    </Box>
   );
 };
 

@@ -1,25 +1,28 @@
 import React from "react";
-import { Typography, Container, Card, CardContent } from "@mui/material";
+import { Typography, Card, CardContent, Grid } from "@mui/material";
+import projectImg from "../images/project-thumbnail.png";
 
 const projects = [
-  { title: "Player Performance Tracker", description: "A JavaFX-based cricket player tracking system using MySQL." },
-  { title: "Generative AI for Finance", description: "Developed a financial query system using LLMs." },
-  { title: "Vector Database for Passage Retrieval", description: "Implemented a large-scale vector DB for efficient passage retrieval." }
+  { title: "AI Music Genre Classifier", description: "Deep Learning for music genre prediction.", link: "#" },
+  { title: "Vector Database for Retrieval", description: "Large-scale passage retrieval system.", link: "#" },
+  { title: "Generative AI Chatbot", description: "Finance AI chatbot using LLMs.", link: "#" }
 ];
 
 const Projects: React.FC = () => {
   return (
-    <Container>
-      <Typography variant="h4" gutterBottom>Projects</Typography>
+    <Grid container spacing={3} justifyContent="center" sx={{ mt: 4 }}>
       {projects.map((project, index) => (
-        <Card key={index} sx={{ marginBottom: 2 }}>
-          <CardContent>
-            <Typography variant="h6">{project.title}</Typography>
-            <Typography variant="body2">{project.description}</Typography>
-          </CardContent>
-        </Card>
+        <Grid item key={index} xs={12} sm={6} md={4}>
+          <Card className="project-card">
+            <CardContent>
+              <img src={projectImg} alt="Project" style={{ width: "100%", borderRadius: "8px" }} />
+              <Typography variant="h6" sx={{ mt: 1 }}>{project.title}</Typography>
+              <Typography variant="body2">{project.description}</Typography>
+            </CardContent>
+          </Card>
+        </Grid>
       ))}
-    </Container>
+    </Grid>
   );
 };
 

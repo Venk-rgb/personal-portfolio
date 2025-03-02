@@ -1,12 +1,16 @@
 import React from "react";
-import { Typography, Container } from "@mui/material";
+import { Typography, Button, Box } from "@mui/material";
+import "./Home.css";
 
 const Home: React.FC = () => {
   return (
-    <Container>
-      <Typography variant="h3" gutterBottom>Welcome to My Portfolio</Typography>
-      <Typography variant="body1">I am Venkataramanan Venkateswaran, a passionate software engineer specializing in data science, machine learning, and full-stack development.</Typography>
-    </Container>
+    <Box className="hero">
+      <Typography variant="h3">Hi, I'm Venkataramanan Venkateswaran</Typography>
+      <Typography variant="h5">Software Engineer | Data Enthusiast</Typography>
+      <Button variant="contained" color="primary" href="/projects" sx={{ mt: 2 }}>
+        View My Work
+      </Button>
+    </Box>
   );
 };
 
